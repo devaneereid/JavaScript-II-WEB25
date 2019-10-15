@@ -66,37 +66,50 @@ runners.forEach(function(item, first_name, last_name) {
 // ==== Challenge 2: Use .map() ====
 // The event director needs to have all the runners' first names in uppercase because the director BECAME DRUNK WITH POWER. Populate an array called `firstNamesAllCaps`. This array will contain just strings.
 let firstNamesAllCaps = [];
-runners.map(item, first_name =>
+runners.map(function(item, first_name){
 console.log(`${item.first_name}`.toUpperCase())
+});
 
 // console.log(firstNamesAllCaps);
 
 // ==== Challenge 3: Use .filter() ====
 // The large shirts won't be available for the event due to an ordering issue. We need a filtered version of the runners array, containing only those runners with large sized shirts so they can choose a different size. This will be an array of objects.
 let runnersLargeSizeShirt = [];
-runners.filter(item => 
-  item.shirt_size === 'L');
+runnersLargeSizeShirt = runners.filter(function(runners, shirt_size){
+  return runners.shirt_size === 'L';
+});
 console.log(runnersLargeSizeShirt);
 
 // ==== Challenge 4: Use .reduce() ====
 // The donations need to be tallied up and reported for tax purposes. Add up all the donations and save the total into a ticketPriceTotal variable.
 let ticketPriceTotal = 0;
-// const reducer = runners.reduce(function(accumulator, item){
-// console.log(`${accumulator}`);
-// console.log(`${item.donation}`);
-// return accumulator + item.donation;
-// },0);
-runners.reduce(function(item, runners, donation, total) {
-return donation += runners.donation;
+ticketPriceTotal = runners.reduce(function(donation, total) {
+return donation += total.donation;
 },0);
 console.log(ticketPriceTotal);
-
 
 // ==== Challenge 5: Be Creative ====
 // Now that you have used .forEach(), .map(), .filter(), and .reduce().  I want you to think of potential problems you could solve given the data set and the 5k fun run theme.  Try to create and then solve 3 unique problems using one or many of the array methods listed above.
 
 // Problem 1
+// Make a list of all the runners emails using .forEach()
+let emailList = [];
+runners.forEach(function(runners, email){
+  console.log(runners.email);
+});
 
 // Problem 2
+// Create a list of donations less than 100 using .filter()
+const newDonationList = 
+runners.filter(function(runners, donation){
+  return runners.donation < 100;
+},0);
+console.log(newDonationList);
 
 // Problem 3
+//Change the shirt sizes to all lower case using .map()
+const newShirtList = 
+runners.map(function(runners, shirt_size){
+  return runners.shirt_size.toLowerCase();
+});
+console.log(newShirtList);
