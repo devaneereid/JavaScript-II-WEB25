@@ -77,3 +77,6 @@ function removeDuplicates(array, cb) {
   // Pass the duplicate free array to the callback function.
   // Do not mutate the original array.
 }
+items.filter((items, i) => items.indexOf(items) === i)
+removeDuplicates(items);
+console.log(removeDuplicates.indexOf);
